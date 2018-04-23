@@ -75,6 +75,6 @@ canget(State1, [H|T]):-
   canget(State2, T).
 
 % use iterative deepening to prevent infinite cycles of the monkey
-% walknig back and forth or pushing the box back and forth
+% walking back and forth or pushing the box back and forth
 % ?- length(Path, _), canget(state(atdoor, onfloor,
 % atwindow, atwall, hasnot), Path).
