@@ -10,4 +10,3 @@ path(Start, Finish, Visited, [Start | Path]):-
 */
 edge(climb_box,[L, onfloor, L, Banana], [L, onbox, L, Banana]).
 edge(grab, [L, onbox, L, hasnot], [L, onbox, L, has]).
-
