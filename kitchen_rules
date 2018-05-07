@@ -1,0 +1,7 @@
+problem_in_kitchen :- hall_wet and bathroom_dry.
+
+no_water_from_outside :- window_closed or no_rain.
+
+leak_in_kitchen :- problem_in_kitchen and no_water_from_outside.
+
+end.

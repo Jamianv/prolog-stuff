@@ -1,9 +1,13 @@
+%Jamian Vieira
+%comp 560
+%Prof. Gabrovsky Spring 2018
 %initial state: Monkey is at the door,
 %               Monkey is on floor,
 %               box is at window,
 %               Monkey doesn't have banana
-%               littlebox is at window
+%               smallbox is at window
 % prolog structure: structName(val1,val2,...)
+
 
 
 % state(monkeylocation, monkey onbox/onfloor, boxlocation,
@@ -73,6 +77,8 @@ canget(state(_,_,_,_,has), []).
 canget(State1, [H|T]):-
   do(State1, H, State2),
   canget(State2, T).
+
+
 
 % use iterative deepening to prevent infinite cycles of the monkey
 % walking back and forth or pushing the box back and forth
