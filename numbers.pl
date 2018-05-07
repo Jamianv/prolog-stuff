@@ -51,24 +51,27 @@
 % Z = 0 ;
 % false.
 
+helper([], _, _).
+helper([H|T], Bound1, Bound2) :-
+    between(Bound1, Bound2, H),
+    helper(T, Bound1, Bound2).
+
+solve(Constraint, Bound1, Bound2):-
+    term_variables(Constraint, Vars),
+    helper(Vars, Bound1, Bound2),
+    call(Constraint).
+
 interpretBounds(true, _, _):-!.
 interpretBounds((A, B), Bound1, Bound2):-
     !,
     interpretBounds(A, Bound1, Bound2),
     interpretBounds(B, Bound1, Bound2).
+interpretBounds(Constraint, Bound1, Bound2):-
+    constraint(Constraint),
+    solve(Constraint, Bound1, Bound2).
 interpretBounds(Exp, Bound1, Bound2):-
-    constraint(Exp),
-    term_variables(Exp, List),
-    between(Bound1, Bound2, A),
-    member(A, List),
-    findall(pair(Exp, Body), clause(constraint(Exp), Body), Bodies),
-    member(pair(Call, Body),Bodies),
-    interpretBounds(Call, Bound1, Bound2).
-interpretBounds(Exp, Bound1, Bound2):-
-    constraint(Exp),
-    ground(Exp),
-    call(Exp),
-    clause(constraint(Exp), Body),
+    \+constraint(Exp),
+    clause(Exp, Body),
     interpretBounds(Body, Bound1, Bound2).
 
 % Succeeds if the given input is an arithmetic constraint
@@ -77,8 +80,6 @@ constraint((_ >= _)).
 constraint((_ < _)).
 constraint((_ =< _)).
 constraint((_ is _)).
-
-
 
 % ---Begin Testing-Related Code---
 % The test suite can be run like so:
