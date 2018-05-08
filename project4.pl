@@ -96,32 +96,39 @@ max(X, Y, X) :- Y =< X.
 % Desktop/kitchen1.pl compiled 0.01 sec, 668 bytes
 
 /* SAMPLE RUN
-
-enter one rule at a time and type end when finished
-
-problem_in_kitchen :- hall_wet and bathroom_dry.
-
-no_water_from_outside :- window_closed or no_rain.
-
-leak_in_kitchen :- problem_in_kitchen and no_water_from_outside.
-end.
-
-Is the hall wet? yes/no . . . . .
-*/
-
-
-/*
-
+%!  %%%%%%%%
+From a file:
+%!  %%%%%%%%
 ?- start.
-Is the hall wet? yes/no:    yes.
-What is the certainty of that?     80.
-Is the bathroom dry? yes/no:    yes.
-What is the certainty of that?     70.
-Is the window closed? yes/no:    no.
-What is the certainty of that?     40.
+Input rules from file or keyboard? file/keyboard:    file.
+Enter your filename: |: kitchen_rules.
+Is the hall wet? yes/no:    |: yes.
+What is the certainty of that?     |: 80.
+Is the bathroom dry? yes/no:    |: yes.
+What is the certainty of that?     |: 70.
+Is the window closed? yes/no:    |: no.
+What is the certainty of that?     |: 40.
 Derived - problem_in_kitchen:   70
 No more facts
+true.
 
-Yes
-
+%!  %%%%%%%%%%%
+One by one
+%!  %%%%%%%%%%%
+?- start.
+Input rules from file or keyboard? file/keyboard:    keyboard
+|: .
+enter your rules on by one ending with end.|: problem_in_kitchen:- hall_wet and bathroom_dry.
+|: no_water_outside :- window_closed or no_rain.
+|: lead_in_kitchen :- problem_in_kitchen and no_water_from_outside.
+|: end.
+Is the hall wet? yes/no:    |: yes.
+What is the certainty of that?     |: 80.
+Is the bathroom dry? yes/no:    |: yes.
+What is the certainty of that?     |: 70.
+Is the window closed? yes/no:    |: no.
+What is the certainty of that?     |: 40.
+Derived - problem_in_kitchen:   70
+No more facts
+true .
 */
