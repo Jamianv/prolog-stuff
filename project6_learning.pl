@@ -222,3 +222,40 @@ solve :-
 
 solve :-
     write('No answer found.'), nl.
+
+/*
+[2]  ?- solve.
+nostrils:external_tubular? : yes.
+live:at_sea? : |: yes.
+bill:hooked? : |: yes.
+What is the value forsize?
+[large,plump,medium,small]
+|: large.
+wings:long_narrow? : |: yes.
+color:white? : |: yes.
+The answer is laysan_albatross
+true .
+
+?- solve.
+nostrils:external_tubular? : no.
+feet:webbed? : |: yes.
+bill:flat? : |: yes.
+neck:long? : |: no.
+What is the value forsize?
+[large,plump,medium,small]
+|: medium.
+What is the value forsize?
+[large,plump,medium,small]
+|: medium.
+What is the value forsize?
+[large,plump,medium,small]
+|: medium.
+feed:on_water_surface? : |: yes.
+What is the value forflight?
+[ponderous,powerful,agile,flap_glide,other]
+|: agile.
+voice:quack? : |: yes.
+head:green? : |: yes.
+The answer is mallard
+true .
+*/
