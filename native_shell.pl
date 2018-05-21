@@ -36,7 +36,7 @@ load_kb :-
 	reconsult(F).
 
 solve :-
-	abolish(known,3),
+	retractall(known(,,,)),
 	prove(top_goal(X),[]),
 	write('The answer is '),write(X),nl.
 solve :-

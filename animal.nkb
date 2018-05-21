@@ -1,0 +1,93 @@
+top_goal(X) :- animal(X).
+animal(cheetah) :-
+	class(mammal),
+	type(carnivore),
+	color(tawny),
+	spots(dark).
+
+animal(tiger) :-
+	class(mammal),
+	type(carnivore),
+	color(tawny),
+  stripes(black).
+
+animal(giraffe):-
+	type(ungulate),
+	neck(long),
+	legs(long).
+
+animal(zebra):-
+	type(ungulate),
+	stripes(black).
+
+animal(ostrich):-
+	class(bird),
+	flight(no),
+	neck(long).
+
+animal(penguin) :-
+	class(bird),
+	flight(no),
+	swims(yes),
+	color(black_and_white).
+
+animal(albatross):-
+	class(bird),
+	story(ancient_mariner),
+	flight(good).
+
+class(mammal) :-
+	covering(hair).
+class(mammal) :-
+ 	gives_milk(yes).
+class(bird) :-
+	covering(feathers).
+class(bird) :-
+ 	flight(yes),
+ 	birth(lays_eggs).
+type(carnivore) :-
+	eats(meat).
+type(carnivore) :-
+	teeth(pointed),
+	feet(claws),
+	eyes(forward).
+type(ungulate) :-
+	class(mammal),
+	feet(hooves).
+type(ungulate) :-
+	eats(cud).
+
+color(X) :- ask(color, X).
+spots(X) :- ask(spots, X).
+stripes(X) :- ask(stripes, X).
+neck(X) :- ask(neck, X).
+legs(X) :- ask(legs, X).
+flight(X) :- ask(flight, X).
+swims(X) :- ask(swims, X).
+story(X) :- ask(story, X).
+covering(X) :- ask(covering, X).
+givesmilk(X) :- ask(givesmilk, X).
+birth(X) :- ask(birth, X).
+eats(X) :- ask(eats, X).
+teeth(X) :- ask(teeth, X).
+feet(X) :- ask(feet, X).
+eyes(X) :- ask(eyes, X).
+
+multivalued(covering).
+multivalued(color).
+
+/*>
+?- main.
+This is the native Prolog shell.
+Type help. load. solve. how(Goal). whynot(Goal). or quit.
+at the prompt.
+> solve.
+No answer found.
+> |: load.
+Enter file name in single quotes (ex. 'birds.nkb'.): |: 'animal.nkb'.
+ |: solve.
+covering:hair? (yes or no) > |: yes.
+eats:meat? (yes or no) > |: yes.
+color:tawny? (yes or no) > |: yes.
+spots:dark? (yes or no) > |: yes.
+The answer is cheetah*/
